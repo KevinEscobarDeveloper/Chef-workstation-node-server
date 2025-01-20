@@ -1,0 +1,15 @@
+[Unit]
+Description=Servicio de Node.js Hello World
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node <%= @app_path %>/app.js
+Restart=always
+User=root
+Group=root
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=<%= @app_path %>
+
+[Install]
+WantedBy=multi-user.target
